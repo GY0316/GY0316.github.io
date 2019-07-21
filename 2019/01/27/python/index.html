@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="python是最近最新兴起的一门计算机语言相较于其他的语言更加精炼更加简单，但深入学习python需要很硬的功底，功底很重要。 以下是python的学习笔记： python的存储类型总共分为几大类：变量，字符串，列表，元组，字典，类。 python的语句类型与c语言相似if语句，while循环，if循环，不同的是python的语法更加精炼没有太多的限制，但要求更多的是代码缩进，逻辑思考的清晰度，更">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python学习">
+<meta property="og:url" content="https://gy0316.github.io/2019/01/27/python/index.html">
+<meta property="og:site_name" content="GY">
+<meta property="og:description" content="python是最近最新兴起的一门计算机语言相较于其他的语言更加精炼更加简单，但深入学习python需要很硬的功底，功底很重要。 以下是python的学习笔记： python的存储类型总共分为几大类：变量，字符串，列表，元组，字典，类。 python的语句类型与c语言相似if语句，while循环，if循环，不同的是python的语法更加精炼没有太多的限制，但要求更多的是代码缩进，逻辑思考的清晰度，更">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-20T15:00:06.560Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python学习">
+<meta name="twitter:description" content="python是最近最新兴起的一门计算机语言相较于其他的语言更加精炼更加简单，但深入学习python需要很硬的功底，功底很重要。 以下是python的学习笔记： python的存储类型总共分为几大类：变量，字符串，列表，元组，字典，类。 python的语句类型与c语言相似if语句，while循环，if循环，不同的是python的语法更加精炼没有太多的限制，但要求更多的是代码缩进，逻辑思考的清晰度，更">
+
+
+
+
+
+
+  <link rel="canonical" href="https://gy0316.github.io/2019/01/27/python/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>python学习 | GY</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion .logo-line-before i { left: initial; }
+    .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GY</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gy0316.github.io/2019/01/27/python/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GuoYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GY">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python学习
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-01-27 16:49:13" itemprop="dateCreated datePublished" datetime="2019-01-27T16:49:13+08:00">2019-01-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-02-20 23:00:06" itemprop="dateModified" datetime="2019-02-20T23:00:06+08:00">2019-02-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>python是最近最新兴起的一门计算机语言相较于其他的语言更加精炼更加简单，但深入学习python需要很硬的功底，功底很重要。</strong></p>
+<h2 id="以下是python的学习笔记："><a href="#以下是python的学习笔记：" class="headerlink" title="以下是python的学习笔记："></a>以下是python的学习笔记：</h2><ol>
+<li>python的存储类型总共分为几大类：变量，字符串，列表，元组，字典，类。</li>
+<li><p>python的语句类型与c语言相似if语句，while循环，if循环，不同的是python的语法更加精炼没有太多的限制，但要求更多的是代码缩进，逻辑思考的清晰度，更要有整体的想法思路。</p>
+<h3 id="基础章-python赋值储存的方式。"><a href="#基础章-python赋值储存的方式。" class="headerlink" title="基础章,python赋值储存的方式。"></a>基础章,python赋值储存的方式。</h3><ol>
+<li>python的段行输出有两种输出方式 print 与echo，都能输出相应变量的值。<blockquote>
+<p>print(“hello world”)<br>echo(“hello world”)</p>
+</blockquote>
+</li>
+<li>变量的赋值</li>
+</ol>
+<ul>
+<li><p>加、减、乘、除和取余都是标准运算符。Python 有两种除法运算符，单斜杠用作传统除法， 双斜杠用作浮点除法。传统除法是指如果两个操作数都是整数的话， 它将执行是地板除，而浮 点除法是真正的除法，不管操作数是什么类型，浮点除法总是执行真正的除法。<br>x    =    y　　　　　　　　　　 x 等于y<br>x    &lt;    y　　　　　　            　 x 小于y<br>x    &gt;    y　　　　　　            　 x    大于y<br>x    &gt;=    y　　　　　　              x    大于等于y<br>x    &lt;=    y　　　　　　            　x    小于等于y<br>x    !=    y　　　　　　　　　 x    不等于y<br>x    is    y　　　　　　　　　    x    和y是同一个对象<br>x    is    not    y　　　　　　　    x    和y是不同的对象<br>x    in    y　　　　　　　　　    x    是y容器(例如，序列)的成员<br>x    not    in    y　　　　　　　    x    不是y容器(例如，序列)的成员</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">2</span>,y=<span class="number">2.0</span>,z=<span class="number">30.22</span></span><br><span class="line">print(x+y+z)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取用户输入的值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">input(<span class="string">"You	this	year	many	big?:	"</span>) </span><br><span class="line">You	<span class="keyword">this</span>	year	many	big?:</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>交互器会识别用户输入的值并将其中的值赋给变量或者打出。</p>
+<ol start="3">
+<li>字符串的赋值<br>字符串的赋值类型没有像c语言麻烦与数字赋值一样都是在基本的赋值语句就能够完成<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">favorite_language=<span class="string">"python"</span></span><br><span class="line">print(favorite_language)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>列表</p>
+</li>
+</ol>
+<ul>
+<li>列表如c语言的数组相近储存多个单元的信息，并一一对应位置。</li>
+<li><p>从一位0开始计数，列表还有切片将其分开表达，其后数组中的值有相应的法则进行改变。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用切片法输出1，2，3</span></span><br><span class="line">x=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>] </span><br><span class="line">print(x[:<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>而在元组中却无法将其改变，初始定值之后元组的值将保持不变，除非将其全部进行二次赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x=(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line">printf(x[<span class="number">1</span>,<span class="number">3</span>]) <span class="comment">//而若想要改变其中的值直接输入x[0]=0;则会报错</span></span><br><span class="line">x=(<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>) <span class="comment">//而这样才能够改变其中的值</span></span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>python的列表还有很多能够改变的方式：<br>| 操作 | 方法 |<br>| ————- |:——————-:|<br>| 删除个别列表的元素 | del x[?/]<br>| 表示列表长度 | len(x) |<br>| 返回最大值 | max(x) |<br>| 返回最小值 | mim(x) |<br>| 转化元组为列表 | list(x) |<br>| 添加元素到末尾 | x.append(??) |<br>| 统计元素在列表出现的次数 | x.count(??) |<br>| 插入一个对象至列表 | x.insert(插入位置的下标，值) |<br>| 弹出列表某一位的值并表达 | x.pop(x) |</p>
+</li>
+</ul>
+<ol start="5">
+<li>字典<br>字典是 Python 中的映射数据类型，工作原理类似 Perl 中的关联数组或者哈希表，由键值(key-value)对构成。几乎所有类型的 Python 对象都可以用作键，不过一般还是以数字或者 字符串为常用用。<br>值可以是任意类型的 Python 对象，字典元素用大括号({ })包裹。 <blockquote>
+<p>zidian={‘x’:2,’y’:1,’z’:3}<br>储存单元信息也可以随时更改。<br>zidian[‘x’]=3</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>字典的基本操作<br>| 方法 | 操作 |<br>| ————- |:——————-:|<br>| len(d)    | 返回    d    中项(键-值对)的数量 |<br>| d[k]    | 返回关联到键    k    上的值 |<br>| d[k]=v    | 将值    v    关联到键k上 |<br>| del    d[k]    | 删除键为    k    的项 |<br>字典也有许多内建函数<br><strong>1 clear    方法清除字典中所有的项。</strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d=&#123;<span class="string">'keys'</span>:<span class="string">'values'</span>&#125;</span><br><span class="line">d.clear()</span><br><span class="line">d</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>发现其中的d值已经被清空。<br><strong>2 copy方法返回一个具有相同键-值对的新字典，储存在一个新的内存中。</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x=&#123;<span class="string">'name'</span>:<span class="string">'tom'</span>,<span class="string">'age'</span>:<span class="string">'18'</span>&#125;</span><br><span class="line">y=x.copy()</span><br><span class="line">print (y)</span><br><span class="line">print (id(y))</span><br><span class="line">print (id(x))</span><br></pre></td></tr></table></figure></p>
+<p><strong>3 fromkeys方法使用给定的键建立新的字典，每个键都对应一个默认的值None</strong></p>
+<blockquote>
+<p>d={}<br>d.fromkeys([“name”,    “age”])<br>如若不想使用None作为默认可以提供或者更改两种方法<br><strong>4 items    方法将字典所有的项以列表方式返回，列表中的每一项都表示为(键,    值)对的形式。但 是项在返回时并没有遵循特定的次序。</strong><br>   x={‘name’:’tom’,’age’:’18’}<br>x.items()<br>返回所有的值键对，但顺序却是散乱的。<br><strong>5 pop    方法用来获得对应于给定键的值，然后将这个键-值对从字典中移除。</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d	=	&#123;<span class="string">"x"</span>:	<span class="number">1</span>,	<span class="string">"y"</span>:	<span class="number">2</span>&#125;	</span><br><span class="line">d.pop(<span class="string">"x"</span>)</span><br><span class="line">print(d)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>返回得到一个值但字典该位置的值却消失</p>
+<ol start="6">
+<li>字符串的操作<br>·find    find    方法可以在一个较长的字符串中查找子串。它返回子串所在位置的最左端索引。如果没 有找到则返回    -1    。<blockquote>
+<p>   “With    a    moo-moo    here,    and    a    moo-moo    there”.find(“moo”)<br>查找结果返回7；<br>·join    方法是非常重要的字符串方法，它是    split    方法的逆方法，用来连接序列中的元素：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">l=range(<span class="number">0</span>,<span class="number">10</span>)</span><br><span class="line">print l.join(l)</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ol>
+<p>·    lower    方法返回字符串的小写字母版。</p>
+<blockquote>
+<p>“Trondheim    Hammer    Dance”.lower()<br>·replace方法返回某字符串的所有匹配项均被替换之后得到字符串。<br>“This    is    a    test”.replace(“is”,”eez”)<br>·split这是一个非常重要的字符串方法，它是    join    的逆方法，用来将字符串分隔成序列。<br>“1+2+3+4+5”.split(“+”)<br>返回一个序列[‘1’,    ‘2’,    ‘3’,    ‘4’,    ‘5’]。<br>如果不提供任何分隔符，程序会把所有空格作为分隔符(空格、制表、换行等)。<br>·strip    方法返回去除两侧(不包括内部)空格的字符串：<br>“    internal    whitespace    is    kept    “.strip()<br>返回生成的结果’internal    whitespace    is    kept’</p>
+</blockquote>
+<h3 id="python语法"><a href="#python语法" class="headerlink" title="python语法"></a>python语法</h3><p>python中有许多语法上与c语言语法相似if-elif-else，while，for.在其中又有一些稍稍的变动<br>中间出去省略的对{}的依赖使代码变得精简客观。</p>
+<ol>
+<li><p>if-elif-else语句相较于c中没有太大变化，但在else if 时python却将其变为elif</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">1</span></span><br><span class="line">y=<span class="number">2</span></span><br><span class="line">z=<span class="number">1</span></span><br><span class="line"><span class="keyword">if</span> x==y:</span><br><span class="line"> print(<span class="string">"?"</span>)</span><br><span class="line">elif x==z:</span><br><span class="line"> print(<span class="string">"!"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"> print(<span class="string">"!"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>while 语句与c来比较没有太大的差距 但所有的语句段都需要在语句后加上‘：’<br>如：想要打印1~100个数字用while实现。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i=<span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> (i&lt;<span class="number">101</span>):</span><br><span class="line"> print (i)</span><br><span class="line"> i+=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>for循环<br>while    语句非常灵活。它可以用来在任何条件为真的情况下重复执行一个代码块。但for循环可以处理一些可迭代对象，将目标信息存储至其中运用。<br>·如用for打印1~100</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">100</span>):</span><br><span class="line"> print i</span><br></pre></td></tr></table></figure>
+<p>用for循环遍历字典元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d	=	&#123;<span class="string">"x"</span>:	<span class="number">1</span>,<span class="string">"y"</span>:<span class="number">2</span>,z<span class="string">":3&#125;	</span></span><br><span class="line"><span class="string">for	key	in	d:</span></span><br><span class="line"><span class="string">		print	key,	"</span>corresponds	to<span class="string">",	d[key]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这样字典的信息就能够通过for打印或者读取。</p>
+<ol start="4">
+<li><p>循环跳出<br>一般来说，循环会一直执行到条件为假，或者到序列元素用完时。但是有些时候可能会提前 中断一个循环，进行新的迭代(新一”轮”的代码执行)，或者仅仅就是像结束循环。 </p>
+<ol>
+<li><p>break<br>结束(跳出)循环可以使用    break    语句。<br>假设需要寻找100以内的最大平方数，那么程序可以开 始从100往下迭代到0.当找到一个平方数时就不需要继续循环了，所以可以跳出循环：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span>	math	<span class="keyword">import</span>	sqrt</span><br><span class="line">  <span class="keyword">for</span>	n	<span class="keyword">in</span>	range(<span class="number">99</span>,	<span class="number">0</span>,	<span class="number">-1</span>)：</span><br><span class="line">    root	=	sqrt(n)</span><br><span class="line">    <span class="keyword">if</span>	root	==	int(root):</span><br><span class="line">      print	n</span><br><span class="line">      <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>continue<br>continue    语句比    break    语句用得要少得多。它会让当前的迭代结束，“跳”到下一轮循环的开始。</p>
+</li>
+<li>pass<br>pass是当语句在该条件下成立时什么都不做。</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/15/page1/" rel="next" title="搭建hexo+github个人博客">
+                <i class="fa fa-chevron-left"></i> 搭建hexo+github个人博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/26/cve漏洞/index/" rel="prev" title="PHPMYADMIN CVE-2018-12613漏洞复现">
+                PHPMYADMIN CVE-2018-12613漏洞复现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">GuoYang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#以下是python的学习笔记："><span class="nav-number">1.</span> <span class="nav-text">以下是python的学习笔记：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础章-python赋值储存的方式。"><span class="nav-number">1.1.</span> <span class="nav-text">基础章,python赋值储存的方式。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python语法"><span class="nav-number">1.2.</span> <span class="nav-text">python语法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GuoYang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.6.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
